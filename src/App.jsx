@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Button from './components/Button';
 import Card from './components/Card';
 import Counter from './components/Counter'
+import Input from './components/Input';
 import PlaceContentCenter from './components/PlaceContentCenter'
 // import './App.css';
 
@@ -15,6 +16,7 @@ export default function App() {
    function onChange(event){
       setForm({...form, [event.target.name] : event.target.value})
    }
+
    return (
       <div className={'bg-slate-100 antialiased flex items-center justify-center min-h-screen'}>
          <div className={'block p-6 rounded-lg shadow-lg bg-white max-w-sm'}>
@@ -26,8 +28,9 @@ export default function App() {
                   </div>
                   <div className={'mb-6'}>
                      <label htmlFor='name'></label>
-                     <input value={form.name} onChange={onChange} id={'name'} name={'name'}></input>
+                     <Input value={form.name} type={'email'} onChange={onChange} id={'name'} name={'name'} />
                   </div>
+                  
                </Card.Body>
                <Card.Footer>
                   <Button onClick={() => console.log('Halo')} type='submit'>Register</Button>
