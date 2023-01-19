@@ -5,9 +5,19 @@ import Card from './components/Card';
 import Counter from './components/Counter'
 import Input from './components/Input';
 import Label from './components/Label';
+import Todo from './components/Todo';
 import PlaceContentCenter from './components/PlaceContentCenter'
 // import './App.css';
 
+export default function App() {
+   return (
+      <PlaceContentCenter>
+         <Todo />
+      </PlaceContentCenter>
+   )
+}
+
+{/*
 export default function App() {
    const [form, setForm] = useState({
       name: 'dede',
@@ -46,3 +56,4 @@ export default function App() {
       </div>
    );
 }
+*/}

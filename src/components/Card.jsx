@@ -1,5 +1,5 @@
 function Card({ children }) {
-   return <div className={'shadow'}>{children}</div>;
+   return <div className={'bg-slate-50 shadow'}>{children}</div>;
 }
 
 function Title({ children }) {
