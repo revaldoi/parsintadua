@@ -4,6 +4,7 @@ import Button from './components/Button';
 import Card from './components/Card';
 import Counter from './components/Counter'
 import Input from './components/Input';
+import InputRef from './components/InputRef';
 import Label from './components/Label';
 import Todo from './components/Todo';
 import PlaceContentCenter from './components/PlaceContentCenter'
@@ -11,12 +12,22 @@ import PlaceContentCenter from './components/PlaceContentCenter'
 
 export default function App() {
    return (
-      <PlaceContentCenter>
-         <Todo />
-      </PlaceContentCenter>
+      // <PlaceContentCenter>
+      //    <Todo />
+      // </PlaceContentCenter>
+      <div className={'bg-slate-100 antialiased flex items-center justify-center min-h-screen'}>
+         <div className={'block p-6 rounded-lg shadow-lg bg-white max-w-sm'}>
+            <Card>
+               <Card.Body>
+                  <InputRef placeholder={'nama'} isFocused />
+                  <InputRef placeholder={'email'}  />
+               </Card.Body>
+            </Card>
+         </div>
+      </div>
    )
 }
-
+ 
 {/*
 export default function App() {
    const [form, setForm] = useState({
