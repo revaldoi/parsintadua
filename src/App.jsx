@@ -1,5 +1,5 @@
 import { IconPlaceholder, IconSettingsOff } from '@tabler/icons';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Button from './components/Button';
 import Card from './components/Card';
 import Counter from './components/Counter'
@@ -9,7 +9,48 @@ import Label from './components/Label';
 import Todo from './components/Todo';
 import PlaceContentCenter from './components/PlaceContentCenter'
 // import './App.css';
+import axios from 'axios'
 
+export default function App(props) {
+   const [loading, setLoading] = useState(false)
+   const [users, setUsers] = useState([])
+
+   useEffect(() => {
+      async function getUsers() {
+         setLoading(true)
+         try {
+            const {data} = await axios('https://jsonplaceholder.typicode.com/users')
+            setUsers(data);
+            console.log(data)
+            setLoading(false)
+         } catch (error) {
+            console.log('mungkin url salah')
+            setLoading(false)
+         }
+      }
+      getUsers().then((r) => r);
+   }, [])
+
+   return(
+      <PlaceContentCenter>
+         <Card>
+            <Card.Title>User {users.length}
+            </Card.Title>
+            <Card.Body>
+               <ol>
+                  {users.map((user) => {
+                     <li key={user.id}>
+                           {user.name}
+                     </li>})}
+               </ol>
+            </Card.Body>
+         </Card>
+      </PlaceContentCenter>
+   )
+}
+
+
+{/*
 export default function App() {
    return (
       // <PlaceContentCenter>
@@ -27,6 +68,7 @@ export default function App() {
       </div>
    )
 }
+*/}
  
 {/*
 export default function App() {
