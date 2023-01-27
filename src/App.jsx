@@ -37,12 +37,14 @@ export default function App(props) {
             <Card.Title>User {users.length}
             </Card.Title>
             <Card.Body>
-               <ol>
-                  {users.map((user) => {
-                     <li key={user.id}>
-                           {user.name}
-                     </li>})}
-               </ol>
+               {loading ? <div>loading ...</div> : 
+                  <ol>
+                     {users.map((user) => (
+                        <li key={user.id}>
+                              {user.name}. Dengan alamat: {user.address.street}, {user.address.city}
+                        </li>))}
+                  </ol>
+               }
             </Card.Body>
          </Card>
       </PlaceContentCenter>
