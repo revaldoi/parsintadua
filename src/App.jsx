@@ -12,6 +12,32 @@ import PlaceContentCenter from './components/PlaceContentCenter'
 import axios from 'axios'
 
 export default function App(props) {
+   const [joke, setJoke] = useState('')
+
+   useEffect(() => {
+      const getJoke = async () => {
+         const {data} = await axios(`https://api.chucknorris.io/jokes/random`)
+         setJoke(data)
+      }
+
+      getJoke().then(r => r);
+   }, [])
+
+   return(
+      <PlaceContentCenter>
+         <Card>
+            <Card.Title>Playground</Card.Title>
+            <Card.Body>
+               {joke.value}
+            </Card.Body>
+         </Card>
+      </PlaceContentCenter>
+   )
+}
+
+
+/*
+export default function App(props) {
    const [loading, setLoading] = useState(false)
    const [users, setUsers] = useState([])
 
@@ -49,7 +75,7 @@ export default function App(props) {
          </Card>
       </PlaceContentCenter>
    )
-}
+}*/
 
 
 {/*
